@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kinderworld Homepage — Premium</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --cloud-midnight:#212374;
+      --sunset:#D83B19;
+      --skyblue:#B2D2FB;
+      --aqua:#5BB9BA;
+      --offwhite:#F5F6F7;
+      --green:#5DBB63;
+      --gold:#F6C667;
+
+      --ink:var(--cloud-midnight);
+      --muted:#60657a;
+      --paper:var(--offwhite);
+      --card:#FFFFFF;
+      --line:#E7E7EC;
+
+      --radius-xl:24px; --radius-lg:18px; --radius-md:12px;
+      --shadow-sm:0 4px 16px rgba(0,0,0,.08);
+      --shadow-md:0 10px 30px rgba(0,0,0,.10);
+      --maxw:1200px;
+
+      --fs-xs:12px; --fs-sm:14px; --fs-base:16px; --fs-lg:18px; --fs-xl:22px; --fs-2xl:28px; --fs-3xl:36px; --fs-4xl:44px; --fs-5xl:54px;
+
+      --section-y:72px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.6;font-size:var(--fs-base)}
+    h1,h2,h3{font-family:inherit;color:var(--ink);line-height:1.2;margin:0 0 .5rem}
+    h1{font-size:clamp(var(--fs-3xl),5vw,var(--fs-5xl));font-weight:700;border-bottom:4px solid var(--sunset);display:inline-block;padding-bottom:6px}
+    h2{font-size:clamp(var(--fs-xl),3vw,var(--fs-3xl));font-weight:600;border-bottom:3px solid var(--aqua);display:inline-block;padding-bottom:4px}
+    h3{font-size:20px;font-weight:600}
+    p.lead{color:var(--muted);font-size:clamp(var(--fs-base),2vw,var(--fs-lg));max-width:60ch}
+    a{color:inherit}
+
+    .wrap{max-width:var(--maxw);margin-inline:auto;padding:0 20px}
+    .section{padding:var(--section-y) 0}
+
+    /* ===== Nav ===== */
+    .navbar{position:sticky;top:0;z-index:1000;background:#0A2E63;display:flex;align-items:center;justify-content:space-between;padding:12px 28px;border-bottom:1px solid var(--line)}
+    .navbar .logo{font-weight:800;font-size:20px;color:#fff}
+    .navbar nav{display:flex;gap:18px}
+    .navbar nav a{text-decoration:none;color:#fff;font-weight:600;transition:color .2s ease}
+    .navbar nav a:hover{color:var(--skyblue)}
+    .btn{display:inline-block;background:var(--sunset);color:#fff;padding:14px 28px;border-radius:12px;text-decoration:none;font-weight:700;transition:.2s ease background, .2s ease box-shadow}
+    .btn:hover{background:#b72f14;box-shadow:0 6px 18px rgba(0,0,0,.15)}
+
+    /* ===== Hero ===== */
+    .hero{position:relative;min-height:72vh;display:flex;align-items:center;justify-content:flex-start;background:url('https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=2000&auto=format&fit=crop') center/cover no-repeat}
+    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.25),rgba(0,0,0,.35))}
+    .hero .content{position:relative;z-index:1;width:100%}
+    .hero h1{color:#fff;border-bottom:none;text-shadow:0 3px 12px rgba(0,0,0,.35)}
+    .hero .lead{color:rgba(255,255,255,.92)}
+
+    /* ===== Stats ===== */
+    .stats-wrap{background:#fff}
+    .stats-head{text-align:center}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding-top:28px;text-align:center;max-width:960px;margin:0 auto}
+    .stat{border-radius:14px;padding:22px;box-shadow:0 2px 6px rgba(0,0,0,0.08);position:relative;transition:transform .2s ease, box-shadow .2s ease;background:#fff;border:1px solid var(--line)}
+    .stat:hover{transform:translateY(-2px);box-shadow:0 5px 12px rgba(0,0,0,0.12)}
+    .stat .row{display:flex;align-items:center;gap:12px;justify-content:center}
+    .icon{width:40px;height:40px;color:var(--ink)}
+    .stat h3{margin:0;font-size:28px;color:var(--ink)}
+    .stat p{margin:6px 0 0;color:#555;font-size:14px}
+    .stats-ethos{max-width:720px;margin:12px auto 0;text-align:center;color:var(--ink);opacity:.8}
+    .stats-cta{text-align:center;margin-top:24px}
+
+    /* ===== Separator ===== */
+    .separator{padding:28px 0}
+    .separator .line{margin:0 auto;height:1px;width:190px;background:linear-gradient(90deg,transparent, var(--aqua), transparent)}
+
+    /* ===== Graduates ===== */
+    .graduates{background:var(--offwhite)}
+    .graduates .wrap{text-align:center;} /* Center align enhancement */
+    .logos{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-top:18px}
+    .logo{background:#ccc;width:120px;height:60px;display:flex;align-items:center;justify-content:center;filter:grayscale(100%);border-radius:6px}
+
+    /* ===== Branch cards ===== */
+    .branches{display:flex;justify-content:center;gap:20px;flex-wrap:wrap}
+    /* Fix: when <section> uses class="branches", don't make it a flex row */
+    .branches.section{display:block}
+    .branch{width:300px;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 3px 10px rgba(0,0,0,.06)}
+    .branch img{width:100%;height:200px;object-fit:cover}
+    .branch h3{margin:10px 0}
+    .branch p{margin:0 0 14px;color:#555}
+    .branch{width:300px;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 3px 10px rgba(0,0,0,.06)}
+    .branch img{width:100%;height:200px;object-fit:cover}
+    .branch h3{margin:10px 0}
+    .branch p{margin:0 0 14px;color:#555}
+
+    /* ===== Premium Six Pillars ===== */
+    .pillars{background:var(--offwhite)}
+    .pillars h2{text-align:center;margin:0 0 18px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .card{position:relative;isolation:isolate;background:var(--card);border:1px solid var(--line);border-radius:var(--radius-lg);padding:18px;box-shadow:var(--shadow-sm);transition:transform .25s ease, box-shadow .25s ease}
+    .card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
+    .tone-1{border-top:6px solid var(--cloud-midnight)}
+    .tone-2{border-top:6px solid var(--aqua)}
+    .tone-3{border-top:6px solid var(--sunset)}
+    .tone-4{border-top:6px solid var(--skyblue)}
+    .tone-5{border-top:6px solid var(--green)}
+    .tone-6{border-top:6px solid var(--gold)}
+    .thumb{width:100%;aspect-ratio:16/9;border-radius:14px;overflow:hidden;margin:-6px -6px 14px;position:relative;box-shadow:var(--shadow-sm);background:#ddd center/cover no-repeat}
+    .thumb::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.0),rgba(0,0,0,.05))}
+    .kicker{letter-spacing:.08em;text-transform:uppercase;font-weight:600;font-size:12px;color:var(--ink);margin-bottom:8px}
+    .card h3{margin:6px 0 8px;font-size:20px}
+    .card p{margin:0;color:#3a4352}
+
+    /* ===== Testimonials ===== */
+    .testimonials{background:#fff}
+    .testimonials h2{text-align:center;margin:0 0 16px}
+    .t-wrap{max-width:1100px;margin:0 auto}
+    .t-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px}
+    .t-card{flex:0 0 320px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;scroll-snap-align:start}
+    .t-stars{color:#F4B400;margin-bottom:8px}
+    .t-quote{font-style:italic;min-height:90px}
+    .t-name{margin-top:12px;font-weight:800;color:var(--ink)}
+    .t-centre{color:#666;font-size:14px}
+
+    /* ===== Footer CTA ===== */
+    .cta-footer{background:var(--cloud-midnight);color:#fff;text-align:center}
+    .cta-footer .btn{background:var(--aqua)}
+
+    /* ===== Responsive ===== */
+    @media (max-width:1000px){.hero{min-height:60vh}.grid{grid-template-columns:1fr 1fr}}
+    @media (max-width:680px){.stats{grid-template-columns:1fr}}
+    @media (max-width:560px){.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+
+  <!-- ===== Nav ===== -->
+  <div class="navbar">
+    <div class="logo">Kinderworld Montessori</div>
+    <nav>
+      <a href="#approach">Our Approach</a>
+      <a href="#programs">Programs</a>
+      <a href="#parents">For Parents</a>
+      <a href="#teach">Teach With Us</a>
+      <a href="#story">Our Story</a>
+    </nav>
+    <a href="#register" class="btn register">Register Now</a>
+  </div>
+
+  <!-- ===== Hero (Full-bleed) ===== -->
+  <section class="hero section" id="hero">
+    <div class="wrap content">
+      <h1>Creating Tomorrow’s Innovative Thinkers Today</h1>
+      <p class="lead">Montessori-inspired, bilingual preschool in BSD &amp; Puri for ages 1.5–6. Independence, curiosity, and resilience grow in thoughtfully prepared environments.</p>
+    </div>
+  </section>
+
+  <!-- ===== STATS (count-up once on load) ===== -->
+  <section class="stats-wrap section" id="stats">
+    <div class="wrap stats-head">
+      <h2>Two Decades of Nurturing Curiosity &amp; Independence</h2>
+      <p class="stats-ethos">Since 2001, Kinderworld has empowered thousands of young learners to think critically, explore independently, and grow with confidence.</p>
+    </div>
+    <div class="wrap">
+      <div class="stats">
+        <div class="stat">
+          <div class="row">
+            <svg viewBox="0 0 48 48" class="icon" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden>
+              <circle cx="10" cy="24" r="4"/><circle cx="24" cy="24" r="4"/><circle cx="38" cy="24" r="4"/>
+              <path d="M6 24h4m8 0h4m8 0h4"/>
+            </svg>
+            <h3><span class="count" data-target="24">0</span> Years</h3>
+          </div>
+          <p>Experience Since 2001</p>
+        </div>
+        <div class="stat">
+          <div class="row">
+            <svg viewBox="0 0 48 48" class="icon" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden>
+              <path d="M24 8l20 10-20 10L4 18 24 8Z"/><path d="M14 26v6c3 3 17 3 20 0v-6"/>
+            </svg>
+            <h3><span class="count" data-target="2500">0</span>+ Students</h3>
+          </div>
+          <p>Educated with Care &amp; Excellence</p>
+        </div>
+        <div class="stat">
+          <div class="row">
+            <svg viewBox="0 0 48 48" class="icon" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden>
+              <path d="M24 44s14-12 14-22A14 14 0 1 0 10 22c0 10 14 22 14 22Z"/><circle cx="24" cy="22" r="5"/>
+            </svg>
+            <h3><span class="count" data-target="2">0</span> Centres</h3>
+          </div>
+          <p>BSD &amp; Puri</p>
+        </div>
+      </div>
+      <div class="stats-cta"><a href="#tour" class="btn">Book a Tour</a></div>
+    </div>
+  </section>
+
+  <!-- ===== Separator ===== -->
+  <section class="separator"><div class="line"></div></section>
+
+  <!-- ===== Graduates ===== -->
+  <section class="graduates section" id="graduates">
+    <div class="wrap">
+      <h2>Where Our Graduates Go</h2>
+      <div class="logos">
+        <div class="logo">School A</div>
+        <div class="logo">School B</div>
+        <div class="logo">School C</div>
+        <div class="logo">School D</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Branches ===== -->
+  <section class="branches section" id="centres">
+    <div class="wrap" style="text-align:center; margin-bottom: 12px;">
+      <h2>Our Location</h2>
+    </div>
+    <div class="wrap" style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap">
+      <div class="branch">
+        <img src="data:image/svg+xml;utf8,<?xml version='1.0' encoding='UTF-8'?><svg xmlns='http://www.w3.org/2000/svg' width='1200' height='800'><rect width='100%' height='100%' fill='%23F5F6F7'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='%23212374' font-family='Arial' font-size='48'>BSD Centre</text></svg>" alt="BSD Centre"/>
+        <h3>BSD Centre</h3>
+        <p>Kinderworld Montessori Preschool, BSD.</p>
+      </div>
+      <div class="branch">
+        <img src="data:image/svg+xml;utf8,<?xml version='1.0' encoding='UTF-8'?><svg xmlns='http://www.w3.org/2000/svg' width='1200' height='800'><rect width='100%' height='100%' fill='%23F5F6F7'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='%23212374' font-family='Arial' font-size='48'>Puri Centre</text></svg>" alt="Puri Centre"/>
+        <h3>Puri Centre</h3>
+        <p>Kinderworld Montessori Preschool, Puri.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Six Pillars (Premium) ===== -->
+  <section class="section pillars" aria-labelledby="pillars-title" id="pillars">
+    <div class="wrap">
+      <h2 id="pillars-title">Our Six Pillars</h2>
+      <p class="lead">Each pillar anchors specific experiences, outcomes, and assessments that grow with your child from toddler to kindergarten.</p>
+
+      <div class="grid" role="list">
+        <article class="card tone-1" role="listitem">
+          <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1600&auto=format&fit=crop');"></div>
+          <div class="kicker">Thinking & Reasoning</div>
+          <h3>Critical Thinkers</h3>
+          <p>We nurture independent thinkers who ask, investigate, and connect ideas through guided exploration and reflection.</p>
+        </article>
+
+        <article class="card tone-2" role="listitem">
+          <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1588072432836-e10032774350?q=80&w=1600&auto=format&fit=crop');"></div>
+          <div class="kicker">Imagination & Making</div>
+          <h3>Creative Explorers</h3>
+          <p>Curiosity thrives daily through open‑ended materials, project work, and joyful experimentation.</p>
+        </article>
+
+        <article class="card tone-3" role="listitem">
+          <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1511988617509-a57c8a288659?q=80&w=1600&auto=format&fit=crop');"></div>
+          <div class="kicker">Voice & Confidence</div>
+          <h3>Confident Communicators</h3>
+          <p>Children practice speaking, presenting, and listening with intention—building courage and clarity.</p>
+        </article>
+
+        <article class="card tone-4" role="listitem">
+          <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1600&auto=format&fit=crop');"></div>
+          <div class="kicker">Teamwork & Social Skills</div>
+          <h3>Collaborative Learners</h3>
+          <p>Projects, play, and routines grow empathy, negotiation, and shared responsibility.</p>
+        </article>
+
+        <article class="card tone-5" role="listitem">
+          <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1600&auto=format&fit=crop');"></div>
+          <div class="kicker">Care & Community</div>
+          <h3>Compassionate Citizens</h3>
+          <p>Grace‑and‑courtesy, service, and nature stewardship cultivate responsibility to others and the world.</p>
+        </article>
+
+        <article class="card tone-6" role="listitem">
+          <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1596495578065-8fe33a854599?q=80&w=1600&auto=format&fit=crop');"></div>
+          <div class="kicker">Character & Resilience</div>
+          <h3>Character Builders</h3>
+          <p>Daily independence, tidy‑up, and calm problem‑solving build perseverance and self‑management.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Testimonials ===== -->
+  <section class="testimonials section" id="testimonials">
+    <div class="wrap">
+      <h2>What Parents Say</h2>
+      <div class="t-wrap">
+        <div class="t-track">
+          <div class="t-card"><div class="t-stars">★★★★★</div><div class="t-quote">“Kinderworld has been a second home for our child.”</div><div class="t-name">Parent Name</div><div class="t-centre">BSD Centre</div></div>
+          <div class="t-card"><div class="t-stars">★★★★★</div><div class="t-quote">“We love the warm teachers and focus on independence.”</div><div class="t-name">Parent Name</div><div class="t-centre">Puri Centre</div></div>
+          <div class="t-card"><div class="t-stars">★★★★★</div><div class="t-quote">“My child grew confident and ready for primary school.”</div><div class="t-name">Parent Name</div><div class="t-centre">BSD Centre</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Final CTA ===== -->
+  <section class="cta-footer section">
+    <div class="wrap">
+      <h2>Ready to Begin Your Child’s Journey?</h2>
+      <a href="#tour" class="btn">Book a Tour</a>
+    </div>
+  </section>
+
+  <!-- ===== Scripts ===== -->
+  <script>
+    // Count-up ONCE on initial page load
+    document.addEventListener('DOMContentLoaded', function(){
+      const counters = document.querySelectorAll('.count');
+      counters.forEach(function(el){
+        const to = parseInt(el.dataset.target, 10);
+        const duration = 1200;
+        const start = performance.now();
+        function step(t){
+          const p = Math.min(1, (t - start)/duration);
+          el.textContent = Math.floor(to * p).toLocaleString();
+          if(p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      });
+    });
+  </script>
+</body>
+</html> 
