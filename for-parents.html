@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For Parents — Kinderworld Montessori</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --cloud-midnight: #212374;
+        --sunset: #d83b19;
+        --skyblue: #b2d2fb;
+        --aqua: #5bb9ba;
+        --offwhite: #f5f6f7;
+        --green: #5dbb63;
+        --gold: #f6c667;
+
+        --ink: var(--cloud-midnight);
+        --muted: #60657a;
+        --paper: var(--offwhite);
+        --card: #ffffff;
+        --line: #e7e7ec;
+
+        --radius-xl: 24px;
+        --radius-lg: 18px;
+        --radius-md: 12px;
+        --shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.08);
+        --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.1);
+        --maxw: 1200px;
+
+        --fs-xs: 12px;
+        --fs-sm: 14px;
+        --fs-base: 16px;
+        --fs-lg: 18px;
+        --fs-xl: 22px;
+        --fs-2xl: 28px;
+        --fs-3xl: 36px;
+        --fs-4xl: 44px;
+        --fs-5xl: 54px;
+
+        --section-y: 72px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: Montserrat, system-ui, -apple-system, Segoe UI, Roboto,
+          Helvetica, Arial, sans-serif;
+        line-height: 1.6;
+        font-size: var(--fs-base);
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: inherit;
+        color: var(--ink);
+        line-height: 1.2;
+        margin: 0 0 0.5rem;
+      }
+      h1 {
+        font-size: clamp(var(--fs-3xl), 5vw, var(--fs-5xl));
+        font-weight: 700;
+        border-bottom: 4px solid var(--sunset);
+        display: inline-block;
+        padding-bottom: 6px;
+      }
+      h2 {
+        font-size: clamp(var(--fs-xl), 3vw, var(--fs-3xl));
+        font-weight: 600;
+        border-bottom: 3px solid var(--aqua);
+        display: inline-block;
+        padding-bottom: 4px;
+      }
+      h3 {
+        font-size: 20px;
+        font-weight: 600;
+      }
+      p.lead {
+        color: var(--muted);
+        font-size: clamp(var(--fs-base), 2vw, var(--fs-lg));
+        max-width: 60ch;
+      }
+      a {
+        color: inherit;
+      }
+
+      .wrap {
+        max-width: var(--maxw);
+        margin-inline: auto;
+        padding: 0 20px;
+      }
+      .section {
+        padding: var(--section-y) 0;
+      }
+
+      /* ===== Nav ===== */
+      .navbar {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: #0a2e63;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 28px;
+        border-bottom: 1px solid var(--line);
+      }
+      .navbar .logo {
+        font-weight: 800;
+        font-size: 20px;
+        color: #fff;
+      }
+      .navbar nav {
+        display: flex;
+        gap: 18px;
+      }
+      .navbar nav a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: 600;
+        transition: color 0.2s ease;
+      }
+      .navbar nav a:hover {
+        color: var(--skyblue);
+      }
+      .navbar nav a.active {
+        color: var(--aqua);
+      }
+      .btn {
+        display: inline-block;
+        background: var(--sunset);
+        color: #fff;
+        padding: 14px 28px;
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: 700;
+        transition: 0.2s ease background, 0.2s ease box-shadow;
+      }
+      .btn:hover {
+        background: #b72f14;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+      }
+
+      /* ===== Hero ===== */
+      .hero {
+        position: relative;
+        min-height: 60vh;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        background: url("https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1600&auto=format&fit=crop")
+          center/cover no-repeat;
+      }
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.25),
+          rgba(0, 0, 0, 0.35)
+        );
+      }
+      .hero .content {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+      }
+      .hero h1 {
+        color: #fff;
+        border-bottom: none;
+        text-shadow: 0 3px 12px rgba(0, 0, 0, 0.35);
+      }
+      .hero .lead {
+        color: rgba(255, 255, 255, 0.92);
+      }
+
+      /* ===== Parent Resources ===== */
+      .resources-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 40px;
+      }
+      .resource-card {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        padding: 24px;
+        box-shadow: var(--shadow-sm);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+      .resource-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-md);
+      }
+      .resource-card h3 {
+        margin-bottom: 16px;
+        color: var(--ink);
+      }
+      .resource-card p {
+        margin-bottom: 16px;
+        color: var(--muted);
+      }
+      .resource-icon {
+        width: 60px;
+        height: 60px;
+        background: var(--skyblue);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        color: var(--ink);
+        font-size: 24px;
+      }
+
+      /* ===== FAQ Section ===== */
+      .faq-item {
+        border-bottom: 1px solid var(--line);
+        padding: 20px 0;
+      }
+      .faq-item:last-child {
+        border-bottom: none;
+      }
+      .faq-question {
+        font-weight: 600;
+        color: var(--ink);
+        margin-bottom: 8px;
+        cursor: pointer;
+      }
+      .faq-answer {
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      /* ===== Responsive ===== */
+      @media (max-width: 768px) {
+        .resources-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ===== Nav ===== -->
+    <div class="navbar">
+      <div class="logo">Kinderworld Montessori</div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="our-approach.html">Our Approach</a>
+        <a href="programs.html">Programs</a>
+        <a href="for-parents.html" class="active">For Parents</a>
+        <a href="teach-with-us.html">Teach With Us</a>
+        <a href="our-story.html">Our Story</a>
+      </nav>
+      <a href="index.html" class="btn">Back to Home</a>
+    </div>
+
+    <!-- ===== Hero ===== -->
+    <section class="hero section" id="hero">
+      <div class="wrap content">
+        <h1>For Parents</h1>
+        <p class="lead">
+          Everything you need to know about supporting your child's Montessori
+          journey, from enrollment to daily routines and parent involvement
+          opportunities.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== Parent Resources ===== -->
+    <section class="section" style="background: var(--offwhite)">
+      <div class="wrap">
+        <h2 style="text-align: center; margin-bottom: 40px">
+          Parent Resources
+        </h2>
+        <div class="resources-grid">
+          <div class="resource-card">
+            <div class="resource-icon">📚</div>
+            <h3>Enrollment Guide</h3>
+            <p>
+              Step-by-step process for enrolling your child, including required
+              documents, health forms, and orientation information.
+            </p>
+            <a href="#" class="btn">Download Guide</a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-icon">📅</div>
+            <h3>School Calendar</h3>
+            <p>
+              Academic calendar, holidays, parent-teacher conferences, and
+              special events throughout the school year.
+            </p>
+            <a href="#" class="btn">View Calendar</a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-icon">💬</div>
+            <h3>Parent Communication</h3>
+            <p>
+              Stay connected through our parent portal, regular newsletters, and
+              direct communication with teachers and staff.
+            </p>
+            <a href="#" class="btn">Access Portal</a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-icon">🏠</div>
+            <h3>Home-School Connection</h3>
+            <p>
+              Tips and activities to extend Montessori learning at home and
+              strengthen the partnership between home and school.
+            </p>
+            <a href="#" class="btn">Get Tips</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="section">
+      <div class="wrap">
+        <h2 style="text-align: center; margin-bottom: 40px">
+          Frequently Asked Questions
+        </h2>
+        <div class="faq-item">
+          <div class="faq-question">
+            What are the school hours and schedule?
+          </div>
+          <div class="faq-answer">
+            Our regular school hours are 8:00 AM to 3:00 PM, Monday through
+            Friday. We also offer extended care from 7:00 AM to 6:00 PM for
+            working parents.
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            How do you handle parent concerns or questions?
+          </div>
+          <div class="faq-answer">
+            We encourage open communication and are always available to address
+            your concerns. You can schedule meetings with teachers, call the
+            office, or use our parent portal for non-urgent matters.
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">What is the parent involvement policy?</div>
+          <div class="faq-answer">
+            We welcome and encourage parent involvement through volunteer
+            opportunities, classroom observations, parent education workshops,
+            and participation in school events and celebrations.
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            How do you communicate student progress?
+          </div>
+          <div class="faq-answer">
+            We provide regular progress reports, hold parent-teacher conferences
+            twice a year, and offer ongoing communication through our digital
+            portfolio system.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section
+      class="section"
+      style="background: var(--cloud-midnight); color: #fff; text-align: center"
+    >
+      <div class="wrap">
+        <h2 style="color: #fff; border-bottom-color: var(--aqua)">
+          Have More Questions?
+        </h2>
+        <a href="index.html#contact" class="btn">Contact Us</a>
+      </div>
+    </section>
+  </body>
+</html>
